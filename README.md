@@ -5,9 +5,7 @@ A responsive, type-safe dashboard built with React, TypeScript, and modern web t
 ## Demo
 
 👉 [Live Demo](https://react-grid-layout-dashboard.vercel.app/)  
-(Use any username/password to login)
-
-![Dashboard Preview](/screenshot.png)
+   *Use any username/password to login
 
 ## Features
 
