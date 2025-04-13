@@ -45,7 +45,7 @@ const Login = () => {
   }, [state, navigate]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
+    <section className="flex min-h-screen items-center justify-center p-4">
     <Card className="w-full max-w-md">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold">Login</CardTitle>
@@ -109,7 +109,7 @@ const Login = () => {
         </span>
       </div>
     </Card>
-  </div>
+  </section>
   )
 }
 
