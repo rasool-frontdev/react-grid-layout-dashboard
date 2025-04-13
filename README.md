@@ -5,17 +5,15 @@ A responsive, type-safe dashboard built with React, TypeScript, and modern web t
 ## Demo
 
 👉 [Live Demo](https://react-grid-layout-dashboard.vercel.app/)  
-   *Use any username/password to login
+
+   Username: `admin`  
+   Password: `password`  
 
 ## Features
 
 - 📊 Data visualization with multiple chart types (Spark, Spiral, Line, Bar)
-- 🔒 Protected routes with simple authentication
-- � Login page with unrestricted access (any credentials work)
 - 🏗️ Built with Vite for fast development
 - 🎨 Styled with Tailwind CSS and shadcn/ui components
-- 📱 Responsive grid layout using react-grid-layout
-- 🛠️ TypeScript for type safety
 - ✨ ESLint for code quality
 - 📦 Package management with pnpm
 

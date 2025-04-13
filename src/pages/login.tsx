@@ -2,7 +2,7 @@ import { useActionState, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter,CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuthStore } from "@/store/auth.store";
@@ -19,6 +19,10 @@ const Login = () => {
 
         if (!username || !password) {
           return { error: "Please enter both username and password" };
+        }
+
+        if (username !== "admin" || password !== "password") {
+          return { error: "Username or password is incorrect" };
         }
 
         const { login } = useAuthStore.getState();
@@ -46,71 +50,54 @@ const Login = () => {
 
   return (
     <section className="flex min-h-screen items-center justify-center p-4">
-    <Card className="w-full max-w-md">
-      <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl font-bold">Login</CardTitle>
-        <CardDescription>Enter your username and password to access your account</CardDescription>
-      </CardHeader>
-      <form action={submitAction}>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="username">Username</Label>
-            <Input
-              id="username"
-              name="username"
-              type="text"
-              placeholder="@username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              autoComplete="username"
-            />
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="password">Password</Label>
-              <a
-                href="#"
-                className="text-sm text-blue-500 hover:text-blue-700"
-              >
-                Forgot password?
-              </a>
+      <Card className="w-full max-w-md">
+        <CardHeader className="space-y-1">
+          <CardTitle className="text-2xl font-bold">Login</CardTitle>
+          <CardDescription>Enter your username and password to access your account</CardDescription>
+        </CardHeader>
+        <form action={submitAction}>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="username">Username</Label>
+              <Input
+                id="username"
+                name="username"
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                autoComplete="username"
+              />
             </div>
-            <Input
-              id="password"
-              name="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="current-password"
-            />
-          </div>
-          {state.error && <p className="text-sm text-red-500">{state.error}</p>}
-        </CardContent>
-        <CardFooter className="mt-4">
-          <Button
-            type="submit"
-            className="w-full bg-primary"
-            disabled={isPending}
-          >
-            {isPending ? "Logging in..." : "Log in"}
-          </Button>
-        </CardFooter>
-      </form>
-      <div className="px-8 pb-6 text-center">
-        <span className="text-sm text-gray-500">
-          Don't have an account?{" "}
-          <span
-            className="text-blue-500 hover:text-blue-700"
-          >
-            Sign up
-          </span>
-        </span>
-      </div>
-    </Card>
-  </section>
-  )
-}
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoComplete="current-password"
+              />
+            </div>
+            {state.error && <p className="text-sm text-red-500">{state.error}</p>}
+          </CardContent>
+          <CardFooter className="mt-4">
+            <Button
+              type="submit"
+              className="w-full bg-primary"
+              disabled={isPending}
+            >
+              {isPending ? "Logging in..." : "Log in"}
+            </Button>
+          </CardFooter>
+        </form>
+      </Card>
+    </section>
+  );
+};
 
-export default Login
+export default Login;
