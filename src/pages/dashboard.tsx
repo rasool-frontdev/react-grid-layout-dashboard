@@ -89,8 +89,6 @@ const Dashboard = () => {
     }
   };
 
-  console.log(blocks)
-
   return (
     <section className="p-4">
     <div className="flex items-center px-2 justify-between mb-4">
