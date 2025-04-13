@@ -101,12 +101,11 @@ const Login = () => {
       <div className="px-8 pb-6 text-center">
         <span className="text-sm text-gray-500">
           Don't have an account?{" "}
-          <a
-            href="#"
+          <span
             className="text-blue-500 hover:text-blue-700"
           >
             Sign up
-          </a>
+          </span>
         </span>
       </div>
     </Card>
